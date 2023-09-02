@@ -2,13 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://linjianshu.github.io/p/20220819%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/</loc>
-    <lastmod>2022-08-20T15:20:00+08:00</lastmod>
+    <loc>https://linjianshu.github.io/p/cg/</loc>
+    <lastmod>2023-09-03T00:01:08+08:00</lastmod>
   </url><url>
     <loc>https://linjianshu.github.io/post/</loc>
-    <lastmod>2022-08-20T15:20:00+08:00</lastmod>
+    <lastmod>2023-09-03T00:01:08+08:00</lastmod>
   </url><url>
     <loc>https://linjianshu.github.io/</loc>
+    <lastmod>2023-09-03T00:01:08+08:00</lastmod>
+  </url><url>
+    <loc>https://linjianshu.github.io/p/%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-12-25T10:46:00+08:00</lastmod>
+  </url><url>
+    <loc>https://linjianshu.github.io/p/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%92%E8%AE%AD%E8%90%A5-go%E8%AF%AD%E8%A8%80%E4%B8%8A%E6%89%8B-%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2022-12-06T10:06:21+08:00</lastmod>
+  </url><url>
+    <loc>https://linjianshu.github.io/p/20220819%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/</loc>
     <lastmod>2022-08-20T15:20:00+08:00</lastmod>
   </url><url>
     <loc>https://linjianshu.github.io/p/20220812%E5%AE%9E%E4%B9%A0%E8%BF%9B%E5%BA%A6%E6%B1%87%E6%8A%A5/</loc>

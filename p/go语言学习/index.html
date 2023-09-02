@@ -844,13 +844,13 @@ var name string"><meta name="twitter:card" content="summary_large_image">
 </span></span></span><span class="line"><span class="cl"><span class="s">	c
 </span></span></span><span class="line"><span class="cl"><span class="s">`</span>
 </span></span></code></pre></div><p>字符串的常用操作</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nb">len</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="nx">求长度</span>
-</span></span><span class="line"><span class="cl"><span class="o">+</span><span class="nx">或者fmt</span><span class="p">.</span><span class="nx">Strintf</span>  <span class="nx">拼接字符串</span>
-</span></span><span class="line"><span class="cl"><span class="nx">strings</span><span class="p">.</span><span class="nx">Split</span>  <span class="nx">分割</span>
-</span></span><span class="line"><span class="cl"><span class="nx">strings</span><span class="p">.</span><span class="nx">contains</span>  <span class="nx">判断是否包含</span>
-</span></span><span class="line"><span class="cl"><span class="nx">strings</span><span class="p">.</span><span class="nx">HasPrefix</span><span class="p">,</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">HasSuffx</span>  <span class="nx">前缀</span><span class="err">、</span><span class="nx">后缀判断</span>
-</span></span><span class="line"><span class="cl"><span class="nx">strings</span><span class="p">.</span><span class="nf">Index</span><span class="p">(),</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">LastIndex</span>  <span class="nx">子串出现的位置</span>
-</span></span><span class="line"><span class="cl"><span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="nx">a</span><span class="p">[]</span> <span class="kt">string</span> <span class="p">,</span> <span class="nx">sep</span> <span class="kt">string</span><span class="p">)</span>  <span class="nx">join操作</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nb">len</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="err">求长度</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span><span class="err">或者</span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Strintf</span>  <span class="err">拼接字符串</span>
+</span></span><span class="line"><span class="cl"><span class="nx">strings</span><span class="p">.</span><span class="nx">Split</span>  <span class="err">分割</span>
+</span></span><span class="line"><span class="cl"><span class="nx">strings</span><span class="p">.</span><span class="nx">contains</span>  <span class="err">判断是否包含</span>
+</span></span><span class="line"><span class="cl"><span class="nx">strings</span><span class="p">.</span><span class="nx">HasPrefix</span><span class="p">,</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">HasSuffx</span>  <span class="err">前缀、后缀判断</span>
+</span></span><span class="line"><span class="cl"><span class="nx">strings</span><span class="p">.</span><span class="nf">Index</span><span class="p">(),</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">LastIndex</span>  <span class="err">子串出现的位置</span>
+</span></span><span class="line"><span class="cl"><span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="nx">a</span><span class="p">[]</span> <span class="kt">string</span> <span class="p">,</span> <span class="nx">sep</span> <span class="kt">string</span><span class="p">)</span>  <span class="nx">join</span><span class="err">操作</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
@@ -1019,10 +1019,10 @@ var name string"><meta name="twitter:card" content="summary_large_image">
 </ul>
 <h5 id="流程控制">流程控制</h5>
 <p>if</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">条件</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">if</span> <span class="err">条件</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="k">else</span> <span class="k">if</span> <span class="nx">条件</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span> <span class="k">if</span> <span class="err">条件</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="k">else</span>
@@ -2799,9 +2799,9 @@ var name string"><meta name="twitter:card" content="summary_large_image">
 <p>构造函数和方法</p>
 <h5 id="方法和接收者">方法和接收者</h5>
 <p>go语言中的方法method是一种作用于特定类型变量的函数。这种特定类型变量叫做接收者receiver 接收者的概念就类似于其他语言中的this或者self</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">接收者变量</span> <span class="nx">接收者类型</span><span class="p">)</span> <span class="nx">方法名</span><span class="p">(</span><span class="nx">参数列表</span><span class="p">)</span> <span class="p">(</span><span class="nx">返回参数</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="err">接收者变量</span> <span class="err">接收者类型</span><span class="p">)</span> <span class="err">方法名</span><span class="p">(</span><span class="err">参数列表</span><span class="p">)</span> <span class="p">(</span><span class="err">返回参数</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">函数体</span>
+</span></span><span class="line"><span class="cl">    <span class="err">函数体</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="cl">
@@ -3037,8 +3037,8 @@ var name string"><meta name="twitter:card" content="summary_large_image">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="day05内容回顾">day05内容回顾</h4>
 <h5 id="自定义类型和类型别名-1">自定义类型和类型别名</h5>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">myInt</span> <span class="kt">int</span> <span class="nx">自定义类型</span> 
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">myInt1</span> <span class="p">=</span> <span class="kt">int</span> <span class="nx">类型别名</span> <span class="nx">在编译过程中</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">myInt</span> <span class="kt">int</span> <span class="err">自定义类型</span> 
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">myInt1</span> <span class="p">=</span> <span class="kt">int</span> <span class="err">类型别名</span> <span class="err">在编译过程中</span>
 </span></span></code></pre></div><p>类型别名只在代码编写过程中有效，编译完之后就不存在，内置的byte和rune都属于类型别名</p>
 <h5 id="结构体-1">结构体</h5>
 <p>基本数据类型 ：表示现实中的物体有局限性</p>
@@ -3197,7 +3197,7 @@ var name string"><meta name="twitter:card" content="summary_large_image">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h5 id="接口的定义">接口的定义</h5>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">name</span> <span class="kd">interface</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">methodname</span><span class="p">(</span><span class="nx">参数1</span><span class="err">，</span><span class="nx">参数2</span><span class="p">)</span> <span class="p">(</span><span class="nx">返回值1</span><span class="err">，</span><span class="nx">返回值2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">methodname</span><span class="p">(</span><span class="err">参数</span><span class="mi">1</span><span class="err">，参数</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="err">返回值</span><span class="mi">1</span><span class="err">，返回值</span><span class="mi">2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="o">...</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>用来给变量/参数/返回值 等设置类型</p>
@@ -3405,7 +3405,7 @@ var name string"><meta name="twitter:card" content="summary_large_image">
 <h5 id="包package">包package</h5>
 <p>包是多个go源码的集合，是一种高级的代码复用方案，go语言为我们提供了很多内置包，如fmt、os、io等</p>
 <p>定义包</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">包名</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="err">包名</span>
 </span></span></code></pre></div><p>注意：</p>
 <ul>
 <li>一个文件夹下只能有一个包，同样一个包的文件不能在多个文件夹下</li>
@@ -3700,7 +3700,7 @@ var name string"><meta name="twitter:card" content="summary_large_image">
 <p>接口就是你要实现的方法的清单</p>
 <h5 id="接口的定义-1">接口的定义</h5>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">mover</span> <span class="kd">interface</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">方法签名</span><span class="p">(</span><span class="nx">参数</span><span class="p">)(</span><span class="nx">返回值</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">方法签名</span><span class="p">(</span><span class="err">参数</span><span class="p">)(</span><span class="err">返回值</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h5 id="接口的实现-1">接口的实现</h5>
 <p>实现了接口的所有方法就实现了这个接口</p>
@@ -4620,7 +4620,7 @@ var name string"><meta name="twitter:card" content="summary_large_image">
 <p>如果说goroutine是go程序并发的执行体，channel就是他们之间的连接。channel是可以让一个goroutine发送特定值到另一个goroutine的通信机制</p>
 <p>go语言中的通道channel是一种特殊的类型。通道像一个传送带或者队列，总是遵循先入先出fifo的规则，保证收发数据的顺序。每一个通道都是具体类型的导管，也就是声明channel的时候需要为其指定元素类型。</p>
 <h5 id="channel类型">channel类型</h5>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">变量</span> <span class="kd">chan</span> <span class="nx">元素类型</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="err">变量</span> <span class="kd">chan</span> <span class="err">元素类型</span>
 </span></span></code></pre></div><p>通道必须使用make函数初始化才能使用</p>
 <h5 id="发送">发送</h5>
 <p>将一个值发送到通道中</p>
@@ -4774,9 +4774,9 @@ var name string"><meta name="twitter:card" content="summary_large_image">
 <p>程序启动的时候会自动的创建一个goroutine去执行main函数，main函数结束了那么程序就结束了所有开启的goroutine也都结束了</p>
 <p>sync.waitGroup 等待组</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">wg</span> <span class="nx">waitGroup</span>
-</span></span><span class="line"><span class="cl"><span class="nx">wg</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span><span class="nx">计数器</span><span class="o">+</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="nx">wg</span><span class="p">.</span><span class="nf">done</span><span class="p">()</span><span class="err">：</span><span class="nx">计数器</span><span class="o">-</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="nx">wg</span><span class="p">.</span><span class="nf">wait</span><span class="p">()</span><span class="err">：</span><span class="nx">等待</span>
+</span></span><span class="line"><span class="cl"><span class="nx">wg</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span><span class="err">计数器</span><span class="o">+</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nx">wg</span><span class="p">.</span><span class="nf">done</span><span class="p">()</span><span class="err">：计数器</span><span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nx">wg</span><span class="p">.</span><span class="nf">wait</span><span class="p">()</span><span class="err">：等待</span>
 </span></span></code></pre></div><h5 id="goroutine的本质">goroutine的本质</h5>
 <p>goroutine的调度模型GMP</p>
 <p>m：n 把m个goroutine分配给n个操作系统的线程</p>
@@ -8926,12 +8926,12 @@ func main() {
         
             2020 - 
         
-        2022 think hy how to learn
+        2023 think hy how to learn
     </section>
     
     <section class="powerby">
-        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+         <br />
+        
     </section>
 </footer>
 

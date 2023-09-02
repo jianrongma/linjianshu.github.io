@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='智能优化混合算法是一种以某类优化算法为基础,融合其他智能算法或理论的混合算法,可用于求解各种工程问题最优解.
+智能算法在工程领域(如系统控制、生产调度、人工智能、模式识别等)的迅速推广和应用，作为一个重要的科学分支，智能优化算法激励人们从更广泛的生物或自然现象寻求启发，以构造新的只能算法或对算法不断地进行改进，从而更好地解决工程中存在的多数复杂问题。优势主要表现在：
+算法原理简单，易于推广和应用 良好的算法收敛性和搜索速度，优化问题较易取得满意结果 Chapter1 绪论
+智能优化算法即一种按照某规则或思想进行的搜索过程，用以得到满足用户要求的问题的解。
+遗传算法于1975年由美国密歇根大学的J.Holland教授等人受生物进化论的启发而提出[1]。遗传算法是以自然界中的生物进化过程为背景，将生物进化过程中的繁殖、选择、杂交、变异和竞争等概念引入算法中。它的基本思想来源于自然界中的生物从低级、简单，发展到高级、复杂，乃至进化成人类这样的一个漫长进化过程，并借鉴了达尔文提出的物竞天择、优胜劣汰、适者生存的自然法则。遗传算法的本质是一种对问题进行高效全局搜索的方法，它在搜索过程中有效的利用已有信息来自动获取和积累有关搜索空间的知识，并自适应地控制搜索方向使其最终走向最优解。
+遗传算法已经在数据挖掘、生产调度、图像处理以及函数优化等领域去的了令人鼓舞的成就，证明了其良好的性能。近年来，遗传算法被应用于诸如复杂的多目标规划问题、人工生命以及神经网络问题、机器学习问题、智能控制等问题中。
+自然界中的生物遗传物质的主要载体是染色体，基因是控制生物性状的遗传物质的功能单位和结构单位，是染色体的主要组成部分，即多个基因组成染色体。在染色体中，基因所占据的位置称为基因座。同一个基因座，可能有的全部基因称为等位基因。染色体的特征即生物个体的性状就是由基因和基因座决定的。与此对应染色体有两种相应的表示模式，即基因型和表现型。所谓表现形式是指生五个题外在所表现出来的性状，而基因型则是指与表现型密切相关的基因组成。同一种基因型的生物个体在不同的外在环境条件作用下可以存在不同的表现型，因此表现型是基因型与外在环境条件下相互作用的结果。染色体带有特征的实体称为个体，个体的集合就是种群。该集合内，个体数称为群体的大小。一个个体对环境的适应程度称为适应度，生物学家使用适应度这个属于来衡量某个物种将获得更多的繁殖后代的机会；而对外在生存环境适应程度较低的物种，其放置后代的机会就会相对较少，甚至逐渐走向灭绝。复制、选择、交叉和变异是自然界中的生物不断向前进化的最重要的组成部分。
+自然遗传学说与人工遗传算法中所使用的基本概念和术语之间的对应关系
+染色体 解的编码 基因 解中的每一个分量的特征 基因座 特性值 个体 解 种群 选定的一组解(解的个数为种群的规模) 适应度 适应度函数值 复制 根据适应度函数值选取的一组解的操作 选择 以一定概率从种群中选择若干个解的操作 交叉 通过交配原则产生一组新解的过程 变异 通过突变原则产生一组新解的过程 执行遗传算法时必须包含两个数据转换操作，一是表现型到基因型的转换，二是基因型到表现型的转换。前者是指把实际问题中的参数或解转换成遗传算法问题中的染色体或个体。这个过程定义为编码操作；后者是对前者的一个相反操作，即把遗传算法中的染色体或者个体转换为实际问题中的解或参数，这个过程叫做译码操作。当产生初始种群之后，就按照适者生存和优胜劣汰的原理，在每一代中根据每个个体的适应度函数值大小来挑选个体，并仿照自然遗传学说中的遗传算子来进行交叉和变异，并产生出代表新的解集的种群。以此类推逐代进化并产生出越来越优异的近似解，最后一代种群中的最优个体经过解码操作，就可以作为待解决问题的近似最优解。
+计算开始时，先将种群随机初始化，产生出一定数目的N个个体，并计算每个个体的适应度函数值，第一代初始种群就产生了。算法按照适应度值选择个体参与交叉编译运算，父代要通过基因重组（交叉）而产生子代，所有的子代按一定概率进行变异操作，然后子代的适应度值又被重新计算，从而产生新的下一代种群。如此反复，直到满足优化准则为止。
+近些年来，国内学者也发表了大量关于遗传算法的文章，如2004年，杨晓梅、曾建潮[5]为改善当时求解车间调度问题中的遗传算法的性能,提高搜索最优调度解的速度,并借鉴遗传算法的生物学基础,提出了基于多个体交叉的遗传算法。该算法在执行遗传过程中充分利用个体自身的优良性质，对不可行的调度解根据多个体修补原则进行修补改正，以此就可保证遗传后代的合法性和种群多样性，能够显著缩短最优调度解的搜索时间。在2005年，王凌、张亮[6]针对有限缓冲区的流水线调度问题,提出了一种基于多搜索模式的遗传算法,该算法使用多个交叉和变异操作来对解空间进行探索和改良,并采用面向有向图的领域结构来增强局部搜索性能。在2007年，吴尔飞、金烨等[7]针对当前研究较少的双边装配线平衡问题,研究双边装配中具有操作方位约束的任务,以及在工位上分配任务的操作顺序与平衡结果具有直接关系等特点,提出了相对应的符合该问题特性的遗传算法。该算法采用基于序列、任务机器分配方位相组合的编码方法，并改进了更加可行的交叉与变异算子，使最优解搜索过程仅在可行解的空间内进行，提高了搜索效率，节约了搜索时间。在2009年，莫巨华、黄敏、王兴伟[8]为实现系统的最优化设计，致力于研究以满足顾客满意率要求为主要约束的多目标规划，并提出了一种改进的遗传算法与过程仿真相结合的求解方法。在该求解方法中，多目标规划通过加权平均转化为单目标规划。
+遗传算法是一种模拟生物界的自然选择和自然遗传机制的随机搜索算法。在遗传算法提出之前，为解决各种优化问题，许多优化算法已经被提出，例如梯度法、单纯形法、动态规划法等。这些优化算法有各自的有点，也有各自的适用范围，同时又有各自的限制因素。遗传算法与这些传统的优化算法有很大的不同，大多数古典的优化算法是对一个单一的度量函数（评估函数）进行梯度或较高次统计，然后产生一个具有确定性的试验解序列。相反，遗传算法并不依赖于梯度信息，而是通过模拟自然界的进化过程来对最优解进行搜索，它利用某种编码技术，并作用于称为染色体的数字串上，对由这些串组成的群体的进化过程进行模拟。遗传算法通过有组织地、随机地交换信息来重新组合那些适应性较好的串，生成新的串并组成群体。
+遗传算法具有自组织性、自适应性和智能性。自然选择清楚了算法设计过程中的一个最大的障碍，即需要事先对问题的全部特点进行描述，并要说明针对问题的不同特点所应采取何种措施。遗传算法的这种自组织、自适应的特征，使它同时具有根据环境的变化而自动发现环境的特性和规律的能力，从而使遗传算法可以用来解决一些复杂的非结构化问题。 遗传算法具有并行性。遗传算法在种群中是按照并行方式进行搜索的，而不是在一个单点上进行寻优的，其并行性表现在两个方面： 遗传算法具有内在并行性，使它本身及其时候大规模并行，并适合在目前所有的并行机或分布式系统上进行并行的处理； 遗传算法具有内行并行性，由于它采用种群的方式来组织搜索，因此可以同时搜索解空间内的多个区域，并相互进行信息交流。许多传统的搜索方法都是从单点开始寻优的，因而在多峰函数优化中极容易陷入局部最优解。遗传算法是从一个种群开始进行搜索的，并且可以同时向不同的方向进行搜索，从而大大提高了遗传算法的全局搜索性能，并减少了陷入局部最优解的可能性。 遗传算法使用概率搜索技术。遗传算法在搜索过程中并不采用确定性规则，而采用概率的变迁规则来指引它的搜索方向，在优化过程中，使搜索的每一步都向最终结果靠近的机制或智能性称为搜索的探索性或启发性。传统搜索方法中从一个搜索点到另一个搜索点的转移有确定性的转移方法和转移关系，这种确定性也极有可能使搜索永远也达不到最优点，因而限制了算法的应用范围，制约了算法的应用效果。遗传算法以适应度数字作为标尺、以概率作为一种工具来指引搜索过程，虽然表面上看，遗传算法好像是一种盲目的搜索方法，但实际上它却是一种导向随机搜索方法。 遗传算法把决策变量的编码作为运算对象。 遗传算法直接把目标函数值作为搜索信息。传统的优化算法不仅需要利用目标函数值，并且还需要目标函数的导数值等其他一些辅助信息才能最终确定下一步的搜索方向和搜索范围，无需使用目标函数的导数值及其他一些辅助信息。这个特性使得遗传算法在很多目标函数无法求导或很难求导的优化问题，以及组合优化问题等应用中比较方便，因为它消除了导数求导这个障碍。另外，直接利用目标函数值或个体适应度值，也可使我们把搜索范围集中到适应度较高的那部分搜索空间中，从而大大提高了搜索的效率，节省了搜索时间。 '><title>智能优化算法笔记</title>
+
+<link rel='canonical' href='https://linjianshu.github.io/p/%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.css">
+<style>
+     
+    body{
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size:cover;
+         cursor: url(https://files.cnblogs.com/files/monster-jian/cursor.ico),auto;
+    }
+     
+    #div_digg {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      border: 2px solid #ECD7B1;
+      padding: 10px;
+      width: 140px;
+      background-color: #fff;
+      border-radius: 5px 5px 5px 5px !important;
+      box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    }
+    </style><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2"></script>
+<script src="https://files.cnblogs.com/files/liyhbk/js.js" color="0,0,255" opacity="1" count="119" zindex="-2">
+</script>
+<script type="text/javascript" color="255,0,0" pointcolor="255,0,0" opacity="0.7" zindex="-2" count="100" src="/dist/canvas-nest.js"></script>
+<script type="text/javascript" src="/dist/canvas-nest.umd.js"></script>
+<script type="text/javascript">
+    var cn = new CanvasNest(document.getElementById('area-render'), {
+        color: '255,0,255',
+        count: 50,
+      });
+      
+      function asyncLoad() {
+        
+        var i = document.createElement("iframe");
+        i.src = "https://ghbtns.com/github-btn.html?user=hustcc&repo=canvas-nest.js&type=star&count=true";
+        i.scrolling = "no";
+        i.frameborder = "0";
+        i.border = "0";
+        i.setAttribute("frameborder", "0", 0);
+        i.width = "100px";
+        i.height = "20px";
+        document.getElementById("github-iframe").appendChild(i);
+      }
+      function loadGitHubBtn() {
+        if (window.addEventListener) {window.addEventListener("load", asyncLoad, false);}
+        else if (window.attachEvent) {window.attachEvent("onload", asyncLoad);}
+        else {window.onload = asyncLoad;}
+      }
+      loadGitHubBtn();
+</script>
+<script src="/canvas-nest.js?version=10"></script><canvas width="1536" height="454" style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none;"></canvas>
+<script src="https://files.cnblogs.com/files/monster-jian/mouse-click.js"></script>
+<script type="text/javascript">
+    
+     
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("❤不做咸鱼！❤","❤拒绝懒惰！❤","❤想做吃货❤","❤向大佬学习❤","❤扶我起来~❤","❤come on❤","❤一直在路上~❤","❤累了~❤","❤再趴一会❤","❤66666❤","❤高兴的飞起*****❤");
+            var $i = $("<span></span>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+            y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
+        });
+    });
+    </script>
+
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>  
+
+ 
+   
+      
+      
+          
+         <script>         
+            L2Dwidget.init({ "model": { jsonPath:          "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",  
+                  "scale": 1 }, "display": { "position": "right", "width": 66, "height": 88,        "hOffset": 0, "vOffset": -20 },
+                   "mobile": { "show": true, "scale": 0.5 },      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } }); 
+                    </script><meta property='og:title' content='智能优化算法笔记'>
+<meta property='og:description' content='智能优化混合算法是一种以某类优化算法为基础,融合其他智能算法或理论的混合算法,可用于求解各种工程问题最优解.
+智能算法在工程领域(如系统控制、生产调度、人工智能、模式识别等)的迅速推广和应用，作为一个重要的科学分支，智能优化算法激励人们从更广泛的生物或自然现象寻求启发，以构造新的只能算法或对算法不断地进行改进，从而更好地解决工程中存在的多数复杂问题。优势主要表现在：
+算法原理简单，易于推广和应用 良好的算法收敛性和搜索速度，优化问题较易取得满意结果 Chapter1 绪论
+智能优化算法即一种按照某规则或思想进行的搜索过程，用以得到满足用户要求的问题的解。
+遗传算法于1975年由美国密歇根大学的J.Holland教授等人受生物进化论的启发而提出[1]。遗传算法是以自然界中的生物进化过程为背景，将生物进化过程中的繁殖、选择、杂交、变异和竞争等概念引入算法中。它的基本思想来源于自然界中的生物从低级、简单，发展到高级、复杂，乃至进化成人类这样的一个漫长进化过程，并借鉴了达尔文提出的物竞天择、优胜劣汰、适者生存的自然法则。遗传算法的本质是一种对问题进行高效全局搜索的方法，它在搜索过程中有效的利用已有信息来自动获取和积累有关搜索空间的知识，并自适应地控制搜索方向使其最终走向最优解。
+遗传算法已经在数据挖掘、生产调度、图像处理以及函数优化等领域去的了令人鼓舞的成就，证明了其良好的性能。近年来，遗传算法被应用于诸如复杂的多目标规划问题、人工生命以及神经网络问题、机器学习问题、智能控制等问题中。
+自然界中的生物遗传物质的主要载体是染色体，基因是控制生物性状的遗传物质的功能单位和结构单位，是染色体的主要组成部分，即多个基因组成染色体。在染色体中，基因所占据的位置称为基因座。同一个基因座，可能有的全部基因称为等位基因。染色体的特征即生物个体的性状就是由基因和基因座决定的。与此对应染色体有两种相应的表示模式，即基因型和表现型。所谓表现形式是指生五个题外在所表现出来的性状，而基因型则是指与表现型密切相关的基因组成。同一种基因型的生物个体在不同的外在环境条件作用下可以存在不同的表现型，因此表现型是基因型与外在环境条件下相互作用的结果。染色体带有特征的实体称为个体，个体的集合就是种群。该集合内，个体数称为群体的大小。一个个体对环境的适应程度称为适应度，生物学家使用适应度这个属于来衡量某个物种将获得更多的繁殖后代的机会；而对外在生存环境适应程度较低的物种，其放置后代的机会就会相对较少，甚至逐渐走向灭绝。复制、选择、交叉和变异是自然界中的生物不断向前进化的最重要的组成部分。
+自然遗传学说与人工遗传算法中所使用的基本概念和术语之间的对应关系
+染色体 解的编码 基因 解中的每一个分量的特征 基因座 特性值 个体 解 种群 选定的一组解(解的个数为种群的规模) 适应度 适应度函数值 复制 根据适应度函数值选取的一组解的操作 选择 以一定概率从种群中选择若干个解的操作 交叉 通过交配原则产生一组新解的过程 变异 通过突变原则产生一组新解的过程 执行遗传算法时必须包含两个数据转换操作，一是表现型到基因型的转换，二是基因型到表现型的转换。前者是指把实际问题中的参数或解转换成遗传算法问题中的染色体或个体。这个过程定义为编码操作；后者是对前者的一个相反操作，即把遗传算法中的染色体或者个体转换为实际问题中的解或参数，这个过程叫做译码操作。当产生初始种群之后，就按照适者生存和优胜劣汰的原理，在每一代中根据每个个体的适应度函数值大小来挑选个体，并仿照自然遗传学说中的遗传算子来进行交叉和变异，并产生出代表新的解集的种群。以此类推逐代进化并产生出越来越优异的近似解，最后一代种群中的最优个体经过解码操作，就可以作为待解决问题的近似最优解。
+计算开始时，先将种群随机初始化，产生出一定数目的N个个体，并计算每个个体的适应度函数值，第一代初始种群就产生了。算法按照适应度值选择个体参与交叉编译运算，父代要通过基因重组（交叉）而产生子代，所有的子代按一定概率进行变异操作，然后子代的适应度值又被重新计算，从而产生新的下一代种群。如此反复，直到满足优化准则为止。
+近些年来，国内学者也发表了大量关于遗传算法的文章，如2004年，杨晓梅、曾建潮[5]为改善当时求解车间调度问题中的遗传算法的性能,提高搜索最优调度解的速度,并借鉴遗传算法的生物学基础,提出了基于多个体交叉的遗传算法。该算法在执行遗传过程中充分利用个体自身的优良性质，对不可行的调度解根据多个体修补原则进行修补改正，以此就可保证遗传后代的合法性和种群多样性，能够显著缩短最优调度解的搜索时间。在2005年，王凌、张亮[6]针对有限缓冲区的流水线调度问题,提出了一种基于多搜索模式的遗传算法,该算法使用多个交叉和变异操作来对解空间进行探索和改良,并采用面向有向图的领域结构来增强局部搜索性能。在2007年，吴尔飞、金烨等[7]针对当前研究较少的双边装配线平衡问题,研究双边装配中具有操作方位约束的任务,以及在工位上分配任务的操作顺序与平衡结果具有直接关系等特点,提出了相对应的符合该问题特性的遗传算法。该算法采用基于序列、任务机器分配方位相组合的编码方法，并改进了更加可行的交叉与变异算子，使最优解搜索过程仅在可行解的空间内进行，提高了搜索效率，节约了搜索时间。在2009年，莫巨华、黄敏、王兴伟[8]为实现系统的最优化设计，致力于研究以满足顾客满意率要求为主要约束的多目标规划，并提出了一种改进的遗传算法与过程仿真相结合的求解方法。在该求解方法中，多目标规划通过加权平均转化为单目标规划。
+遗传算法是一种模拟生物界的自然选择和自然遗传机制的随机搜索算法。在遗传算法提出之前，为解决各种优化问题，许多优化算法已经被提出，例如梯度法、单纯形法、动态规划法等。这些优化算法有各自的有点，也有各自的适用范围，同时又有各自的限制因素。遗传算法与这些传统的优化算法有很大的不同，大多数古典的优化算法是对一个单一的度量函数（评估函数）进行梯度或较高次统计，然后产生一个具有确定性的试验解序列。相反，遗传算法并不依赖于梯度信息，而是通过模拟自然界的进化过程来对最优解进行搜索，它利用某种编码技术，并作用于称为染色体的数字串上，对由这些串组成的群体的进化过程进行模拟。遗传算法通过有组织地、随机地交换信息来重新组合那些适应性较好的串，生成新的串并组成群体。
+遗传算法具有自组织性、自适应性和智能性。自然选择清楚了算法设计过程中的一个最大的障碍，即需要事先对问题的全部特点进行描述，并要说明针对问题的不同特点所应采取何种措施。遗传算法的这种自组织、自适应的特征，使它同时具有根据环境的变化而自动发现环境的特性和规律的能力，从而使遗传算法可以用来解决一些复杂的非结构化问题。 遗传算法具有并行性。遗传算法在种群中是按照并行方式进行搜索的，而不是在一个单点上进行寻优的，其并行性表现在两个方面： 遗传算法具有内在并行性，使它本身及其时候大规模并行，并适合在目前所有的并行机或分布式系统上进行并行的处理； 遗传算法具有内行并行性，由于它采用种群的方式来组织搜索，因此可以同时搜索解空间内的多个区域，并相互进行信息交流。许多传统的搜索方法都是从单点开始寻优的，因而在多峰函数优化中极容易陷入局部最优解。遗传算法是从一个种群开始进行搜索的，并且可以同时向不同的方向进行搜索，从而大大提高了遗传算法的全局搜索性能，并减少了陷入局部最优解的可能性。 遗传算法使用概率搜索技术。遗传算法在搜索过程中并不采用确定性规则，而采用概率的变迁规则来指引它的搜索方向，在优化过程中，使搜索的每一步都向最终结果靠近的机制或智能性称为搜索的探索性或启发性。传统搜索方法中从一个搜索点到另一个搜索点的转移有确定性的转移方法和转移关系，这种确定性也极有可能使搜索永远也达不到最优点，因而限制了算法的应用范围，制约了算法的应用效果。遗传算法以适应度数字作为标尺、以概率作为一种工具来指引搜索过程，虽然表面上看，遗传算法好像是一种盲目的搜索方法，但实际上它却是一种导向随机搜索方法。 遗传算法把决策变量的编码作为运算对象。 遗传算法直接把目标函数值作为搜索信息。传统的优化算法不仅需要利用目标函数值，并且还需要目标函数的导数值等其他一些辅助信息才能最终确定下一步的搜索方向和搜索范围，无需使用目标函数的导数值及其他一些辅助信息。这个特性使得遗传算法在很多目标函数无法求导或很难求导的优化问题，以及组合优化问题等应用中比较方便，因为它消除了导数求导这个障碍。另外，直接利用目标函数值或个体适应度值，也可使我们把搜索范围集中到适应度较高的那部分搜索空间中，从而大大提高了搜索的效率，节省了搜索时间。 '>
+<meta property='og:url' content='https://linjianshu.github.io/p/%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/'>
+<meta property='og:site_name' content='think hy how to learn'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-12-25T10:46:00&#43;08:00'/><meta property='article:modified_time' content='2022-12-25T10:46:00&#43;08:00'/><meta property='og:image' content='https://linjianshu.github.io/img/avatar.png' />
+<meta name="twitter:site" content="@ljsljs56495989">
+    <meta name="twitter:creator" content="@ljsljs56495989"><meta name="twitter:title" content="智能优化算法笔记">
+<meta name="twitter:description" content="智能优化混合算法是一种以某类优化算法为基础,融合其他智能算法或理论的混合算法,可用于求解各种工程问题最优解.
+智能算法在工程领域(如系统控制、生产调度、人工智能、模式识别等)的迅速推广和应用，作为一个重要的科学分支，智能优化算法激励人们从更广泛的生物或自然现象寻求启发，以构造新的只能算法或对算法不断地进行改进，从而更好地解决工程中存在的多数复杂问题。优势主要表现在：
+算法原理简单，易于推广和应用 良好的算法收敛性和搜索速度，优化问题较易取得满意结果 Chapter1 绪论
+智能优化算法即一种按照某规则或思想进行的搜索过程，用以得到满足用户要求的问题的解。
+遗传算法于1975年由美国密歇根大学的J.Holland教授等人受生物进化论的启发而提出[1]。遗传算法是以自然界中的生物进化过程为背景，将生物进化过程中的繁殖、选择、杂交、变异和竞争等概念引入算法中。它的基本思想来源于自然界中的生物从低级、简单，发展到高级、复杂，乃至进化成人类这样的一个漫长进化过程，并借鉴了达尔文提出的物竞天择、优胜劣汰、适者生存的自然法则。遗传算法的本质是一种对问题进行高效全局搜索的方法，它在搜索过程中有效的利用已有信息来自动获取和积累有关搜索空间的知识，并自适应地控制搜索方向使其最终走向最优解。
+遗传算法已经在数据挖掘、生产调度、图像处理以及函数优化等领域去的了令人鼓舞的成就，证明了其良好的性能。近年来，遗传算法被应用于诸如复杂的多目标规划问题、人工生命以及神经网络问题、机器学习问题、智能控制等问题中。
+自然界中的生物遗传物质的主要载体是染色体，基因是控制生物性状的遗传物质的功能单位和结构单位，是染色体的主要组成部分，即多个基因组成染色体。在染色体中，基因所占据的位置称为基因座。同一个基因座，可能有的全部基因称为等位基因。染色体的特征即生物个体的性状就是由基因和基因座决定的。与此对应染色体有两种相应的表示模式，即基因型和表现型。所谓表现形式是指生五个题外在所表现出来的性状，而基因型则是指与表现型密切相关的基因组成。同一种基因型的生物个体在不同的外在环境条件作用下可以存在不同的表现型，因此表现型是基因型与外在环境条件下相互作用的结果。染色体带有特征的实体称为个体，个体的集合就是种群。该集合内，个体数称为群体的大小。一个个体对环境的适应程度称为适应度，生物学家使用适应度这个属于来衡量某个物种将获得更多的繁殖后代的机会；而对外在生存环境适应程度较低的物种，其放置后代的机会就会相对较少，甚至逐渐走向灭绝。复制、选择、交叉和变异是自然界中的生物不断向前进化的最重要的组成部分。
+自然遗传学说与人工遗传算法中所使用的基本概念和术语之间的对应关系
+染色体 解的编码 基因 解中的每一个分量的特征 基因座 特性值 个体 解 种群 选定的一组解(解的个数为种群的规模) 适应度 适应度函数值 复制 根据适应度函数值选取的一组解的操作 选择 以一定概率从种群中选择若干个解的操作 交叉 通过交配原则产生一组新解的过程 变异 通过突变原则产生一组新解的过程 执行遗传算法时必须包含两个数据转换操作，一是表现型到基因型的转换，二是基因型到表现型的转换。前者是指把实际问题中的参数或解转换成遗传算法问题中的染色体或个体。这个过程定义为编码操作；后者是对前者的一个相反操作，即把遗传算法中的染色体或者个体转换为实际问题中的解或参数，这个过程叫做译码操作。当产生初始种群之后，就按照适者生存和优胜劣汰的原理，在每一代中根据每个个体的适应度函数值大小来挑选个体，并仿照自然遗传学说中的遗传算子来进行交叉和变异，并产生出代表新的解集的种群。以此类推逐代进化并产生出越来越优异的近似解，最后一代种群中的最优个体经过解码操作，就可以作为待解决问题的近似最优解。
+计算开始时，先将种群随机初始化，产生出一定数目的N个个体，并计算每个个体的适应度函数值，第一代初始种群就产生了。算法按照适应度值选择个体参与交叉编译运算，父代要通过基因重组（交叉）而产生子代，所有的子代按一定概率进行变异操作，然后子代的适应度值又被重新计算，从而产生新的下一代种群。如此反复，直到满足优化准则为止。
+近些年来，国内学者也发表了大量关于遗传算法的文章，如2004年，杨晓梅、曾建潮[5]为改善当时求解车间调度问题中的遗传算法的性能,提高搜索最优调度解的速度,并借鉴遗传算法的生物学基础,提出了基于多个体交叉的遗传算法。该算法在执行遗传过程中充分利用个体自身的优良性质，对不可行的调度解根据多个体修补原则进行修补改正，以此就可保证遗传后代的合法性和种群多样性，能够显著缩短最优调度解的搜索时间。在2005年，王凌、张亮[6]针对有限缓冲区的流水线调度问题,提出了一种基于多搜索模式的遗传算法,该算法使用多个交叉和变异操作来对解空间进行探索和改良,并采用面向有向图的领域结构来增强局部搜索性能。在2007年，吴尔飞、金烨等[7]针对当前研究较少的双边装配线平衡问题,研究双边装配中具有操作方位约束的任务,以及在工位上分配任务的操作顺序与平衡结果具有直接关系等特点,提出了相对应的符合该问题特性的遗传算法。该算法采用基于序列、任务机器分配方位相组合的编码方法，并改进了更加可行的交叉与变异算子，使最优解搜索过程仅在可行解的空间内进行，提高了搜索效率，节约了搜索时间。在2009年，莫巨华、黄敏、王兴伟[8]为实现系统的最优化设计，致力于研究以满足顾客满意率要求为主要约束的多目标规划，并提出了一种改进的遗传算法与过程仿真相结合的求解方法。在该求解方法中，多目标规划通过加权平均转化为单目标规划。
+遗传算法是一种模拟生物界的自然选择和自然遗传机制的随机搜索算法。在遗传算法提出之前，为解决各种优化问题，许多优化算法已经被提出，例如梯度法、单纯形法、动态规划法等。这些优化算法有各自的有点，也有各自的适用范围，同时又有各自的限制因素。遗传算法与这些传统的优化算法有很大的不同，大多数古典的优化算法是对一个单一的度量函数（评估函数）进行梯度或较高次统计，然后产生一个具有确定性的试验解序列。相反，遗传算法并不依赖于梯度信息，而是通过模拟自然界的进化过程来对最优解进行搜索，它利用某种编码技术，并作用于称为染色体的数字串上，对由这些串组成的群体的进化过程进行模拟。遗传算法通过有组织地、随机地交换信息来重新组合那些适应性较好的串，生成新的串并组成群体。
+遗传算法具有自组织性、自适应性和智能性。自然选择清楚了算法设计过程中的一个最大的障碍，即需要事先对问题的全部特点进行描述，并要说明针对问题的不同特点所应采取何种措施。遗传算法的这种自组织、自适应的特征，使它同时具有根据环境的变化而自动发现环境的特性和规律的能力，从而使遗传算法可以用来解决一些复杂的非结构化问题。 遗传算法具有并行性。遗传算法在种群中是按照并行方式进行搜索的，而不是在一个单点上进行寻优的，其并行性表现在两个方面： 遗传算法具有内在并行性，使它本身及其时候大规模并行，并适合在目前所有的并行机或分布式系统上进行并行的处理； 遗传算法具有内行并行性，由于它采用种群的方式来组织搜索，因此可以同时搜索解空间内的多个区域，并相互进行信息交流。许多传统的搜索方法都是从单点开始寻优的，因而在多峰函数优化中极容易陷入局部最优解。遗传算法是从一个种群开始进行搜索的，并且可以同时向不同的方向进行搜索，从而大大提高了遗传算法的全局搜索性能，并减少了陷入局部最优解的可能性。 遗传算法使用概率搜索技术。遗传算法在搜索过程中并不采用确定性规则，而采用概率的变迁规则来指引它的搜索方向，在优化过程中，使搜索的每一步都向最终结果靠近的机制或智能性称为搜索的探索性或启发性。传统搜索方法中从一个搜索点到另一个搜索点的转移有确定性的转移方法和转移关系，这种确定性也极有可能使搜索永远也达不到最优点，因而限制了算法的应用范围，制约了算法的应用效果。遗传算法以适应度数字作为标尺、以概率作为一种工具来指引搜索过程，虽然表面上看，遗传算法好像是一种盲目的搜索方法，但实际上它却是一种导向随机搜索方法。 遗传算法把决策变量的编码作为运算对象。 遗传算法直接把目标函数值作为搜索信息。传统的优化算法不仅需要利用目标函数值，并且还需要目标函数的导数值等其他一些辅助信息才能最终确定下一步的搜索方向和搜索范围，无需使用目标函数的导数值及其他一些辅助信息。这个特性使得遗传算法在很多目标函数无法求导或很难求导的优化问题，以及组合优化问题等应用中比较方便，因为它消除了导数求导这个障碍。另外，直接利用目标函数值或个体适应度值，也可使我们把搜索范围集中到适应度较高的那部分搜索空间中，从而大大提高了搜索的效率，节省了搜索时间。 "><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://linjianshu.github.io/img/avatar.png' />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <style>
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            html, body {
+              height: 100%;
+              width: 100%;
+            }
+            #github-iframe {
+              position: fixed;
+              left: 32px;
+              top: 32px;
+            }
+             
+        </style>
+   
+
+
+<link rel="stylesheet" type="texts" href="https://blog-static.cnblogs.com/files/monster-jian/waifu.css"/>
+
+
+</head>
+
+
+
+
+
+
+
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280473365'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1280473365%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<body size-sensor-id="1" style="position: relative;">
+    
+    <div id="area-render"></div>
+   
+
+</body>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+
+</html>
+
+
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/hanbagui_hu1992e2ef3ca17530e3489d97af7cbea6_3164_300x0_resize_box.bmp" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        <h1 class="site-name"><a href="https://linjianshu.github.io/">think hy how to learn</a></h1>
+        <h2 class="site-description">好运暴富,就在今日.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>暗色模式</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">智能优化算法笔记</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 25, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>智能优化混合算法是一种以某类优化算法为基础,融合其他智能算法或理论的混合算法,可用于求解各种工程问题最优解.</p>
+<p>智能算法在工程领域(如系统控制、生产调度、人工智能、模式识别等)的迅速推广和应用，作为一个重要的科学分支，智能优化算法激励人们从更广泛的生物或自然现象寻求启发，以构造新的只能算法或对算法不断地进行改进，从而更好地解决工程中存在的多数复杂问题。优势主要表现在：</p>
+<ol>
+<li>算法原理简单，易于推广和应用</li>
+<li>良好的算法收敛性和搜索速度，优化问题较易取得满意结果</li>
+</ol>
+<p>Chapter1 绪论</p>
+<p>智能优化算法即一种按照某规则或思想进行的搜索过程，用以得到满足用户要求的问题的解。</p>
+<p>遗传算法于1975年由美国密歇根大学的J.Holland教授等人受生物进化论的启发而提出[1]。遗传算法是以自然界中的生物进化过程为背景，将生物进化过程中的繁殖、选择、杂交、变异和竞争等概念引入算法中。它的基本思想来源于自然界中的生物从低级、简单，发展到高级、复杂，乃至进化成人类这样的一个漫长进化过程，并借鉴了达尔文提出的物竞天择、优胜劣汰、适者生存的自然法则。遗传算法的本质是一种对问题进行高效全局搜索的方法，它在搜索过程中有效的利用已有信息来自动获取和积累有关搜索空间的知识，并自适应地控制搜索方向使其最终走向最优解。</p>
+<p>遗传算法已经在数据挖掘、生产调度、图像处理以及函数优化等领域去的了令人鼓舞的成就，证明了其良好的性能。近年来，遗传算法被应用于诸如复杂的多目标规划问题、人工生命以及神经网络问题、机器学习问题、智能控制等问题中。</p>
+<p>自然界中的生物遗传物质的主要载体是染色体，基因是控制生物性状的遗传物质的功能单位和结构单位，是染色体的主要组成部分，即多个基因组成染色体。在染色体中，基因所占据的位置称为基因座。同一个基因座，可能有的全部基因称为等位基因。染色体的特征即生物个体的性状就是由基因和基因座决定的。与此对应染色体有两种相应的表示模式，即基因型和表现型。所谓表现形式是指生五个题外在所表现出来的性状，而基因型则是指与表现型密切相关的基因组成。同一种基因型的生物个体在不同的外在环境条件作用下可以存在不同的表现型，因此表现型是基因型与外在环境条件下相互作用的结果。染色体带有特征的实体称为个体，个体的集合就是种群。该集合内，个体数称为群体的大小。一个个体对环境的适应程度称为适应度，生物学家使用适应度这个属于来衡量某个物种将获得更多的繁殖后代的机会；而对外在生存环境适应程度较低的物种，其放置后代的机会就会相对较少，甚至逐渐走向灭绝。复制、选择、交叉和变异是自然界中的生物不断向前进化的最重要的组成部分。</p>
+<p>自然遗传学说与人工遗传算法中所使用的基本概念和术语之间的对应关系</p>
+<table>
+<thead>
+<tr>
+<th>染色体</th>
+<th>解的编码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基因</td>
+<td>解中的每一个分量的特征</td>
+</tr>
+<tr>
+<td>基因座</td>
+<td>特性值</td>
+</tr>
+<tr>
+<td>个体</td>
+<td>解</td>
+</tr>
+<tr>
+<td>种群</td>
+<td>选定的一组解(解的个数为种群的规模)</td>
+</tr>
+<tr>
+<td>适应度</td>
+<td>适应度函数值</td>
+</tr>
+<tr>
+<td>复制</td>
+<td>根据适应度函数值选取的一组解的操作</td>
+</tr>
+<tr>
+<td>选择</td>
+<td>以一定概率从种群中选择若干个解的操作</td>
+</tr>
+<tr>
+<td>交叉</td>
+<td>通过交配原则产生一组新解的过程</td>
+</tr>
+<tr>
+<td>变异</td>
+<td>通过突变原则产生一组新解的过程</td>
+</tr>
+</tbody>
+</table>
+<p>执行遗传算法时必须包含两个数据转换操作，一是表现型到基因型的转换，二是基因型到表现型的转换。前者是指把实际问题中的参数或解转换成遗传算法问题中的染色体或个体。这个过程定义为编码操作；后者是对前者的一个相反操作，即把遗传算法中的染色体或者个体转换为实际问题中的解或参数，这个过程叫做译码操作。当产生初始种群之后，就按照适者生存和优胜劣汰的原理，在每一代中根据每个个体的适应度函数值大小来挑选个体，并仿照自然遗传学说中的遗传算子来进行交叉和变异，并产生出代表新的解集的种群。以此类推逐代进化并产生出越来越优异的近似解，最后一代种群中的最优个体经过解码操作，就可以作为待解决问题的近似最优解。</p>
+<p>计算开始时，先将种群随机初始化，产生出一定数目的N个个体，并计算每个个体的适应度函数值，第一代初始种群就产生了。算法按照适应度值选择个体参与交叉编译运算，父代要通过基因重组（交叉）而产生子代，所有的子代按一定概率进行变异操作，然后子代的适应度值又被重新计算，从而产生新的下一代种群。如此反复，直到满足优化准则为止。</p>
+<p>近些年来，国内学者也发表了大量关于遗传算法的文章，如2004年，杨晓梅、曾建潮[5]为改善当时求解车间调度问题中的遗传算法的性能,提高搜索最优调度解的速度,并借鉴遗传算法的生物学基础,提出了基于多个体交叉的遗传算法。该算法在执行遗传过程中充分利用个体自身的优良性质，对不可行的调度解根据多个体修补原则进行修补改正，以此就可保证遗传后代的合法性和种群多样性，能够显著缩短最优调度解的搜索时间。在2005年，王凌、张亮[6]针对有限缓冲区的流水线调度问题,提出了一种基于多搜索模式的遗传算法,该算法使用多个交叉和变异操作来对解空间进行探索和改良,并采用面向有向图的领域结构来增强局部搜索性能。在2007年，吴尔飞、金烨等[7]针对当前研究较少的双边装配线平衡问题,研究双边装配中具有操作方位约束的任务,以及在工位上分配任务的操作顺序与平衡结果具有直接关系等特点,提出了相对应的符合该问题特性的遗传算法。该算法采用基于序列、任务机器分配方位相组合的编码方法，并改进了更加可行的交叉与变异算子，使最优解搜索过程仅在可行解的空间内进行，提高了搜索效率，节约了搜索时间。在2009年，莫巨华、黄敏、王兴伟[8]为实现系统的最优化设计，致力于研究以满足顾客满意率要求为主要约束的多目标规划，并提出了一种改进的遗传算法与过程仿真相结合的求解方法。在该求解方法中，多目标规划通过加权平均转化为单目标规划。</p>
+<p>遗传算法是一种模拟生物界的自然选择和自然遗传机制的随机搜索算法。在遗传算法提出之前，为解决各种优化问题，许多优化算法已经被提出，例如梯度法、单纯形法、动态规划法等。这些优化算法有各自的有点，也有各自的适用范围，同时又有各自的限制因素。遗传算法与这些传统的优化算法有很大的不同，大多数古典的优化算法是对一个单一的度量函数（评估函数）进行梯度或较高次统计，然后产生一个具有确定性的试验解序列。相反，遗传算法并不依赖于梯度信息，而是通过模拟自然界的进化过程来对最优解进行搜索，它利用某种编码技术，并作用于称为染色体的数字串上，对由这些串组成的群体的进化过程进行模拟。遗传算法通过有组织地、随机地交换信息来重新组合那些适应性较好的串，生成新的串并组成群体。</p>
+<ol>
+<li>遗传算法具有自组织性、自适应性和智能性。自然选择清楚了算法设计过程中的一个最大的障碍，即需要事先对问题的全部特点进行描述，并要说明针对问题的不同特点所应采取何种措施。遗传算法的这种自组织、自适应的特征，使它同时具有根据环境的变化而自动发现环境的特性和规律的能力，从而使遗传算法可以用来解决一些复杂的非结构化问题。</li>
+<li>遗传算法具有并行性。遗传算法在种群中是按照并行方式进行搜索的，而不是在一个单点上进行寻优的，其并行性表现在两个方面：
+<ol>
+<li>遗传算法具有内在并行性，使它本身及其时候大规模并行，并适合在目前所有的并行机或分布式系统上进行并行的处理；</li>
+<li>遗传算法具有内行并行性，由于它采用种群的方式来组织搜索，因此可以同时搜索解空间内的多个区域，并相互进行信息交流。许多传统的搜索方法都是从单点开始寻优的，因而在多峰函数优化中极容易陷入局部最优解。遗传算法是从一个种群开始进行搜索的，并且可以同时向不同的方向进行搜索，从而大大提高了遗传算法的全局搜索性能，并减少了陷入局部最优解的可能性。</li>
+<li>遗传算法使用概率搜索技术。遗传算法在搜索过程中并不采用确定性规则，而采用概率的变迁规则来指引它的搜索方向，在优化过程中，使搜索的每一步都向最终结果靠近的机制或智能性称为搜索的探索性或启发性。传统搜索方法中从一个搜索点到另一个搜索点的转移有确定性的转移方法和转移关系，这种确定性也极有可能使搜索永远也达不到最优点，因而限制了算法的应用范围，制约了算法的应用效果。遗传算法以适应度数字作为标尺、以概率作为一种工具来指引搜索过程，虽然表面上看，遗传算法好像是一种盲目的搜索方法，但实际上它却是一种导向随机搜索方法。</li>
+<li>遗传算法把决策变量的编码作为运算对象。</li>
+<li>遗传算法直接把目标函数值作为搜索信息。传统的优化算法不仅需要利用目标函数值，并且还需要目标函数的导数值等其他一些辅助信息才能最终确定下一步的搜索方向和搜索范围，无需使用目标函数的导数值及其他一些辅助信息。这个特性使得遗传算法在很多目标函数无法求导或很难求导的优化问题，以及组合优化问题等应用中比较方便，因为它消除了导数求导这个障碍。另外，直接利用目标函数值或个体适应度值，也可使我们把搜索范围集中到适应度较高的那部分搜索空间中，从而大大提高了搜索的效率，节省了搜索时间。</li>
+</ol>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 think hy how to learn
+    </section>
+    
+    <section class="powerby">
+         <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<!doctype html>
+<html lang="en">
+<head>
+   
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+</body>
+
+</html>
+
+
+    </body>
+</html>

@@ -613,8 +613,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>网站80%都在读，如果每次去查询数据库的话就十分的麻烦！所以说我们希望减轻数据的压力，我们可以使用缓存来保证效率</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923185840123.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923185840123.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923185840123.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923185840123.png"
 			
 			
 			
@@ -629,8 +629,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>3.分库分表+水平拆分+mysql集群</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923190414174.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923190414174.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923190414174.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923190414174.png"
 			
 			
 			
@@ -656,8 +656,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 </blockquote>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923191743309.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923191743309.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923191743309.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923191743309.png"
 			
 			
 			
@@ -689,21 +689,21 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>2.大数据量高性能（Redis 一秒写80000次，读取110000次，nosql的缓存记录级，是一种细粒度的缓存，性能会比较高！）</p>
 <p>3.数据类型是多样型！（不需要事先设计数据库！随取随用！如果数据量十分大的表，很多人就无法设计了！）</p>
 <p>4.传统的rdbms 和nosql的区别</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">传统的rdbms</span>
-</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">结构化组织</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">传统的</span><span class="n">rdbms</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="err">结构化组织</span>
 </span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">sql</span>
-</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">数据和关系都存在单独的表中</span>
-</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">操作操作</span><span class="err">，</span><span class="n">数据定义语言</span>
-</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">严格的一致性</span>
-</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">基础的事务</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="err">数据和关系都存在单独的表中</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="err">操作操作，数据定义语言</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="err">严格的一致性</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="err">基础的事务</span>
 </span></span><span class="line"><span class="cl"><span class="o">-....</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">nosql</span>
-</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">不仅仅是数据</span>
-</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">没有固定的查询语言</span>
-</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">键值对存储</span><span class="err">，</span><span class="n">列存储</span><span class="err">，</span><span class="n">文档存储</span><span class="err">，</span><span class="n">图形数据库</span><span class="err">（</span><span class="n">社交关系</span><span class="err">）</span>
-</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">最终一致性</span>
-</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">CAP定理</span> <span class="n">和</span> <span class="n">BASE</span><span class="err">（</span><span class="n">异地多活</span><span class="err">！）</span> <span class="n">初级架构师</span>
-</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">高性能</span><span class="err">，</span><span class="n">高可用</span><span class="err">，</span><span class="n">高可扩</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="err">不仅仅是数据</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="err">没有固定的查询语言</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="err">键值对存储，列存储，文档存储，图形数据库（社交关系）</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="err">最终一致性</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">CAP</span><span class="err">定理</span> <span class="err">和</span> <span class="n">BASE</span><span class="err">（异地多活！）</span> <span class="err">初级架构师</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="err">高性能，高可用，高可扩</span>
 </span></span><span class="line"><span class="cl"><span class="o">-....</span>
 </span></span></code></pre></div><blockquote>
 <p>了解：3V+3高</p>
@@ -724,8 +724,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>这么多东西难道都是在一个数据库中的吗？</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923195311367.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923195311367.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923195311367.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923195311367.png"
 			
 			
 			
@@ -741,8 +741,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>如果你未来想当一个架构是：没有什么是加一层解决不了的</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923200304616.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923200304616.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923200304616.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923200304616.png"
 			
 			
 			
@@ -753,27 +753,27 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 	<figcaption>image-20200923200304616</figcaption>
 	
 </figure></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">#</span> <span class="n">1</span><span class="o">.</span><span class="na">商品基本信息</span>
-</span></span><span class="line"><span class="cl"><span class="n">名称</span><span class="err">、</span><span class="n">价格</span><span class="err">、</span><span class="n">商家信息</span><span class="err">；</span>
-</span></span><span class="line"><span class="cl"><span class="n">关系型数据库就可以解决了</span><span class="err">！</span><span class="n">mysql</span> <span class="o">/</span><span class="n">oracle</span><span class="o">(</span><span class="n">淘宝早年就去IOE</span><span class="o">!--</span><span class="n">王坚</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">淘宝内部的mysql</span> <span class="n">不是大家用的mysql</span>
-</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="n">2</span><span class="o">.</span><span class="na">商品的描述</span><span class="err">、</span><span class="n">评论</span><span class="err">（</span><span class="n">文字比较多</span><span class="err">）</span>
-</span></span><span class="line"><span class="cl"><span class="n">文档型数据库中</span><span class="err">，</span><span class="n">mongodb</span>
-</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="n">3</span><span class="o">.</span><span class="na">图片</span>
-</span></span><span class="line"><span class="cl"><span class="n">分布式文件系统</span> <span class="n">FastDFS</span>
-</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">淘宝自己的TFS</span>
-</span></span><span class="line"><span class="cl"> <span class="err">—</span><span class="n">google自己的GFS</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">#</span> <span class="mf">1.</span><span class="err">商品基本信息</span>
+</span></span><span class="line"><span class="cl"><span class="err">名称、价格、商家信息；</span>
+</span></span><span class="line"><span class="cl"><span class="err">关系型数据库就可以解决了！</span><span class="n">mysql</span> <span class="o">/</span><span class="n">oracle</span><span class="o">(</span><span class="err">淘宝早年就去</span><span class="n">IOE</span><span class="o">!--</span><span class="err">王坚</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">淘宝内部的</span><span class="n">mysql</span> <span class="err">不是大家用的</span><span class="n">mysql</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="mf">2.</span><span class="err">商品的描述、评论（文字比较多）</span>
+</span></span><span class="line"><span class="cl"><span class="err">文档型数据库中，</span><span class="n">mongodb</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="mf">3.</span><span class="err">图片</span>
+</span></span><span class="line"><span class="cl"><span class="err">分布式文件系统</span> <span class="n">FastDFS</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="err">淘宝自己的</span><span class="n">TFS</span>
+</span></span><span class="line"><span class="cl"> <span class="err">—</span><span class="n">google</span><span class="err">自己的</span><span class="n">GFS</span>
 </span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">Hadoop</span> <span class="n">HDFS</span>
-</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">阿里云的</span> <span class="n">oss</span>
-</span></span><span class="line"><span class="cl"> <span class="err">#</span><span class="n">4</span><span class="o">.</span><span class="na">商品的关键字</span><span class="err">（</span><span class="n">搜索</span><span class="err">）</span>
-</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">搜索引擎</span> <span class="n">solr</span>  <span class="n">elasticsearch</span>
-</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">iseacher</span>  <span class="n">多隆</span> 
-</span></span><span class="line"><span class="cl"> <span class="n">所有牛逼的人都有一段苦逼的岁月</span>
-</span></span><span class="line"><span class="cl"> <span class="err">#</span><span class="n">5</span><span class="o">.</span><span class="na">商品热门的波段信息</span>
-</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">内存数据库</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="err">阿里云的</span> <span class="n">oss</span>
+</span></span><span class="line"><span class="cl"> <span class="err">#</span><span class="mf">4.</span><span class="err">商品的关键字（搜索）</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="err">搜索引擎</span> <span class="n">solr</span>  <span class="n">elasticsearch</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">iseacher</span>  <span class="err">多隆</span> 
+</span></span><span class="line"><span class="cl"> <span class="err">所有牛逼的人都有一段苦逼的岁月</span>
+</span></span><span class="line"><span class="cl"> <span class="err">#</span><span class="mf">5.</span><span class="err">商品热门的波段信息</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="err">内存数据库</span>
 </span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">redis</span> <span class="n">tair</span><span class="err">、</span><span class="n">memarche</span>
-</span></span><span class="line"><span class="cl"> <span class="err">#</span><span class="n">6</span><span class="o">.</span><span class="na">商品的交易</span><span class="err">，</span><span class="n">外部的支付接口</span>
-</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="n">三方应用</span>
+</span></span><span class="line"><span class="cl"> <span class="err">#</span><span class="mf">6.</span><span class="err">商品的交易，外部的支付接口</span>
+</span></span><span class="line"><span class="cl"> <span class="o">-</span><span class="err">三方应用</span>
 </span></span></code></pre></div><p>要知道，一个简单的网页背后的技术一定不是大家想的那么简单</p>
 <p>大型互联网应用问题：</p>
 <ul>
@@ -783,8 +783,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 </ul>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923202347841.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923202347841.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923202347841.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923202347841.png"
 			
 			
 			
@@ -797,8 +797,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 </figure></p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923202441215.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923202441215.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923202441215.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923202441215.png"
 			
 			
 			
@@ -811,8 +811,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 </figure></p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923202455222.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923202455222.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923202455222.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923202455222.png"
 			
 			
 			
@@ -850,8 +850,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>图形关系数据库</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923203416066.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923203416066.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923203416066.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923203416066.png"
 			
 			
 			
@@ -871,8 +871,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 </blockquote>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923203555105.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923203555105.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923203555105.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200923203555105.png"
 			
 			
 			
@@ -899,8 +899,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924092136203.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924092136203.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924092136203.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924092136203.png"
 			
 			
 			
@@ -938,8 +938,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>3.解压</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095526656.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095526656.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095526656.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095526656.png"
 			
 			
 			
@@ -953,8 +953,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>4.开启redis，双击运行服务</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095553184.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095553184.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095553184.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095553184.png"
 			
 			
 			
@@ -969,8 +969,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>5.使用redis客户端来连接redis</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095651464.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095651464.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095651464.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095651464.png"
 			
 			
 			
@@ -983,8 +983,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 </figure></p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095841127.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095841127.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095841127.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924095841127.png"
 			
 			
 			
@@ -998,8 +998,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>记住一句话，window下使用确实简单，但是redis推荐我们使用linux去开发使用</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924100331170.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924100331170.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924100331170.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924100331170.png"
 			
 			
 			
@@ -1015,8 +1015,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>官方自带的性能测试工具！</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924101324907.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924101324907.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924101324907.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924101324907.png"
 			
 			
 			
@@ -1037,8 +1037,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 </span></span><span class="line"><span class="cl"><span class="o">(</span>integer<span class="o">)</span> <span class="m">0</span>
 </span></span></code></pre></div><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102052855.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102052855.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102052855.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102052855.png"
 			
 			
 			
@@ -1051,8 +1051,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 </figure></p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102123448.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102123448.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102123448.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102123448.png"
 			
 			
 			
@@ -1066,8 +1066,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>查看当前数据库中所有的key</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102338783.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102338783.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102338783.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102338783.png"
 			
 			
 			
@@ -1081,8 +1081,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>删除当前数据库中<code>flush</code></p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102622792.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102622792.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102622792.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924102622792.png"
 			
 			
 			
@@ -1136,8 +1136,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 </span></span><span class="line"><span class="cl"><span class="nb">type</span> name 查看当前key的类型
 </span></span></code></pre></div><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104300213.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104300213.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104300213.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104300213.png"
 			
 			
 			
@@ -1150,8 +1150,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 </figure></p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104451001.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104451001.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104451001.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104451001.png"
 			
 			
 			
@@ -1164,8 +1164,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 </figure></p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104806660.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104806660.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104806660.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924104806660.png"
 			
 			
 			
@@ -1178,8 +1178,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 </figure></p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924105127099.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924105127099.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924105127099.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924105127099.png"
 			
 			
 			
@@ -1194,8 +1194,8 @@ nosql = not only sql(不仅仅是sql)"><meta name="twitter:card" content="summar
 <p>90%的java程序员使用的都是redis的string类型</p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924105632891.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924105632891.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924105632891.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924105632891.png"
 			
 			
 			
@@ -1211,8 +1211,8 @@ exists 判断某个key是否存在
 strlen 获取字符串的长度
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924110407868.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924110407868.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924110407868.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924110407868.png"
 			
 			
 			
@@ -1229,8 +1229,8 @@ incrby key increment 自增多少步长
 decrby key decrement 自减多少步长
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924110748593.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924110748593.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924110748593.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924110748593.png"
 			
 			
 			
@@ -1254,8 +1254,8 @@ setex（set with expire)   #设置过期时间
 setnx(set if not exist)  #不存在设置
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924111131931.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924111131931.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924111131931.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924111131931.png"
 			
 			
 			
@@ -1269,8 +1269,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">setex key time value 设置过期时间ttl key 查看多久过期setnx key value 设置原本不存在的key的value值返回值是0代表没有成功 1代表成功
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924111716363.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924111716363.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924111716363.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924111716363.png"
 			
 			
 			
@@ -1284,8 +1284,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">mset 同时设置多个值 mget 同时获取多个值msetnx 是一个原子性的操作，要么一起成功，要么一起失败
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924112237809.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924112237809.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924112237809.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924112237809.png"
 			
 			
 			
@@ -1299,8 +1299,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">#对象set user1:1 {name:zhangsan,age:3}#设置user:1对象 值为json字符串来保存一个对象#这里的key是一个巧妙的设置：user：{id}：{filed}，如此设计在redis中是完全ok的
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924112908580.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924112908580.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924112908580.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924112908580.png"
 			
 			
 			
@@ -1313,8 +1313,8 @@ setnx(set if not exist)  #不存在设置
 </figure></p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924113631933.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924113631933.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924113631933.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924113631933.png"
 			
 			
 			
@@ -1328,8 +1328,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">getset key value 没有就设置设置完了就可以再改
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150037955.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150037955.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150037955.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150037955.png"
 			
 			
 			
@@ -1342,8 +1342,8 @@ setnx(set if not exist)  #不存在设置
 </figure></p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150059352.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150059352.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150059352.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150059352.png"
 			
 			
 			
@@ -1356,8 +1356,8 @@ setnx(set if not exist)  #不存在设置
 </figure></p>
 <p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150112188.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150112188.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150112188.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924150112188.png"
 			
 			
 			
@@ -1383,8 +1383,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">lpush 将一个值或多个值，插入到列表头部（左）rpush 将一个值或多个值，插入到列表尾部（右）lrange key start end 获取值
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924151313766.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924151313766.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924151313766.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924151313766.png"
 			
 			
 			
@@ -1398,8 +1398,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">lpop 移除list的第一个元素rpop 移除list的最后一个元素
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924151853384.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924151853384.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924151853384.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924151853384.png"
 			
 			
 			
@@ -1413,8 +1413,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">lindex key index 通过下标获取某一个值
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152048330.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152048330.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152048330.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152048330.png"
 			
 			
 			
@@ -1428,8 +1428,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">llen list的长度
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152237266.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152237266.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152237266.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152237266.png"
 			
 			
 			
@@ -1443,8 +1443,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">移除指定的值！取消关注 uidlrem key count value 移除特定个数的指定值
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152956569.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152956569.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152956569.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924152956569.png"
 			
 			
 			
@@ -1458,8 +1458,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">trim 修剪ltrim 截断list集合并获取特定下标的集合ltrim key start end 
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924153243035.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924153243035.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924153243035.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924153243035.png"
 			
 			
 			
@@ -1473,8 +1473,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">rpoplpush移除列表右边最后一个元素并且将其加入到一个新的列表中rpoplpush source destination
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924153737788.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924153737788.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924153737788.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924153737788.png"
 			
 			
 			
@@ -1488,8 +1488,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">lset key index value 将列表中指定下标的值替换为另外一个值，更新操作如果不存在指定下标，就会报错
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924154630068.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924154630068.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924154630068.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924154630068.png"
 			
 			
 			
@@ -1504,8 +1504,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">linsert key before/after 特定的value 要插入的value将某一个具体的value插入到列表中某个特定元素的前面或者后面
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924155744795.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924155744795.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924155744795.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924155744795.png"
 			
 			
 			
@@ -1532,8 +1532,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">set通常都是以s开头的sadd  key member 向集合中添加元素sismember key member 判断某元素是否在指定的集合中smembers key  查看指定集合的所有元素scard key 查看指定集合的长度
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924162841343.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924162841343.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924162841343.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924162841343.png"
 			
 			
 			
@@ -1547,8 +1547,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">srem (s remove缩写) key value 删除指定集合里的指定元素
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163026477.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163026477.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163026477.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163026477.png"
 			
 			
 			
@@ -1562,8 +1562,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">set无需不重复集合，可以实现抽随机srandmember key 数量  随机抽取指定数量的元素从某指定集合中
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163406035.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163406035.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163406035.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163406035.png"
 			
 			
 			
@@ -1577,8 +1577,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">删除指定的key， 随机删除指定的key0spop key count 随机移除指定集合内指定数量的元素
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163558641.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163558641.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163558641.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163558641.png"
 			
 			
 			
@@ -1592,8 +1592,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">将一个指定的集合中的指定元素移除至另一个指定集合中smove source destination value 
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163918565.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163918565.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163918565.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924163918565.png"
 			
 			
 			
@@ -1608,8 +1608,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">差集sdiff(set different) sdiff key1 key2 与 sdiff key2 key1不同，参考系不一样sunion key1 key2 sinter key1 key2
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924164627415.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924164627415.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924164627415.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924164627415.png"
 			
 			
 			
@@ -1627,8 +1627,8 @@ setnx(set if not exist)  #不存在设置
 <pre tabindex="0"><code class="language-bush" data-lang="bush">hset key field value 设置值hget key field 		获取值hmset key field1 value1 field2 value2 批量设置值hget key field1 field2 批量设置值hgetall key 获取所有的值
 </code></pre><p><figure 
 	>
-	<a href="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924170715011.png" >
-		<img src="/E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924170715011.png"
+	<a href="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924170715011.png" >
+		<img src="E:%5c%e6%9e%97%e5%81%a5%e6%a0%91%5ctypora%5cimage-20200924170715011.png"
 			
 			
 			
@@ -1727,12 +1727,12 @@ setnx(set if not exist)  #不存在设置
         
             2020 - 
         
-        2022 think hy how to learn
+        2023 think hy how to learn
     </section>
     
     <section class="powerby">
-        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+         <br />
+        
     </section>
 </footer>
 
